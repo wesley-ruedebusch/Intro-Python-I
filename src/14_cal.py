@@ -30,3 +30,28 @@ it should use today’s date to get the month and year.
 import sys
 import calendar
 from datetime import datetime
+
+# for elem in sys.argv:
+#     print('\n' + elem + '\n')
+
+calendar = calendar.TextCalendar(calendar.SUNDAY)
+today = datetime.today()
+
+# prmonth: "Function also prints the month of specific year 
+# but there is no need of “print” operation to execute this" 
+# - https://www.geeksforgeeks.org/python-calendar-module/
+
+# calendar.prmonth(2015, 10)
+# print(today)
+
+if len(sys.argv) == 1:
+  calendar.prmonth(today.year, today.month)
+elif len(sys.argv) == 2:
+  month = int(sys.argv[1])
+  calendar.prmonth(today.year, month)
+elif len(sys.argv) == 3:
+  month = int(sys.argv[1])
+  year = int(sys.argv[2])
+  calendar.prmonth(year, month)
+else:
+    print("Format expected: [fileName] [month][year]")
